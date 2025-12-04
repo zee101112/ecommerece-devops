@@ -7,11 +7,13 @@ SECRET_KEY = 'dev-secret-key-for-local-use-only'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["my-shop-3-qhz0.onrender.com"]
+ALLOWED_HOSTS = ["ecommerece-devops.onrender.com"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://my-shop-3-qhz0.onrender.com",
+    'https://ecommerece-devops.onrender.com',
+   
 ]
+
 
 
 INSTALLED_APPS = [
