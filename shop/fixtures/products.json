@@ -1,0 +1,24 @@
+[
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "name": "Blue T-Shirt",
+      "description": "Comfortable blue t-shirt, 100% cotton.",
+      "price": "19.99",
+      "stock": 20,
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "name": "Red Mug",
+      "description": "Ceramic mug with red glaze. 300ml.",
+      "price": "9.50",
+      "stock": 35,
+      "image": ""
+    }
+  }
+]
