@@ -15,13 +15,14 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy project
 COPY . .
 
+# Create persistent data directory (Render Disk mount point)
+RUN mkdir -p /var/data
+
 # Expose port (Render provides $PORT, but exposing is fine)
 EXPOSE 8000
 
-# Run migrations + collectstatic + start server
+# Run migrations + collectstatic + ensure superuser + start server
 CMD python manage.py migrate --noinput && \
     python manage.py collectstatic --noinput && \
     python manage.py shell < createsuperuser.py && \
     gunicorn ecommerce_project.wsgi:application --bind 0.0.0.0:${PORT:-8000}
-
-
