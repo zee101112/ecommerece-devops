@@ -1,0 +1,29 @@
+{% extends "shop/base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+        {% else %}
+            <img src="https://via.placeholder.com/500x400" class="img-fluid" alt="No image">
+        {% endif %}
+    </div>
+    <div class="col-md-6 d-flex flex-column">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p class="fw-bold">Price: £{{ product.price }}</p>
+        <p>Stock: {{ product.stock }}</p>
+
+        <!-- Buttons in a row -->
+        <div class="mt-auto d-flex gap-2">
+            <form action="{% url 'cart_add' product.id %}" method="post" class="flex-fill">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary w-100">Add to Cart</button>
+            </form>
+            <a href="{% url 'product_list' %}" class="btn btn-secondary flex-fill">Back to Products</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

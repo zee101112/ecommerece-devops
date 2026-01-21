@@ -1,0 +1,53 @@
+name: Django CI/CD Pipeline
+
+# Trigger workflow on push or pull request to main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      # Make sure to set these secrets in your GitHub repo: RENDER_API_KEY, RENDER_SERVICE_ID
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+
+    steps:
+    # 1️⃣ Checkout the repository
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    # 2️⃣ Set up Python environment
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.12
+
+    # 3️⃣ Install dependencies
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-django flake8
+
+    # 4️⃣ Linting using flake8
+    - name: Lint Code
+      run: |
+        flake8 shop ecommerce_project --count --max-line-length=120 --statistics
+
+    # 5️⃣ Run tests
+    - name: Run Django Tests
+      run: |
+        python manage.py test shop
+
+    # 6️⃣ Build and deploy to Render
+    - name: Deploy to Render
+      run: |
+        curl -X POST "https://api.render.com/deploy/srv-${{ env.RENDER_SERVICE_ID }}/manual" \
+        -H "Authorization: Bearer ${{ env.RENDER_API_KEY }}" \
+        -H "Content-Type: application/json" \
+        -d '{}'
