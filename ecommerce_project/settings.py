@@ -96,3 +96,6 @@ LOGOUT_REDIRECT_URL = 'login'
 
 # Cart settings
 CART_SESSION_ID = 'cart'
+
+from django.db import connection
+print("DB VENDOR:", connection.vendor)
