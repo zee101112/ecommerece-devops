@@ -21,4 +21,5 @@ EXPOSE 8000
 # Run migrations + collectstatic + start server
 CMD python manage.py migrate --noinput && \
     python manage.py collectstatic --noinput && \
+    python manage.py shell < createsuperuser.py && \
     gunicorn ecommerce_project.wsgi:application --bind 0.0.0.0:${PORT:-8000}
