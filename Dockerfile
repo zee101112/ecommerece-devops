@@ -19,8 +19,5 @@ COPY . .
 EXPOSE 8000
 RUN mkdir -p /var/data
 
-# Run migrations + collectstatic + ensure superuser + start Gunicorn
-CMD python manage.py migrate --noinput && \
-    python manage.py collectstatic --noinput && \
-    python manage.py shell < createsuperuser.py && \
-    gunicorn ecommerce_project.wsgi:application --bind 0.0.0.0:${PORT:-8000}
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
