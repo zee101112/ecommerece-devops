@@ -3,9 +3,9 @@
   "model": "shop.product",
   "pk": 1,
   "fields": {
-    "name": "Puma Speedcat",
-    "description": "Men Shoes\r\nExplore Puma\r\n£ 89.99VAT included\r\n\r\nor 4 interest-free payments of £22.50 with  ⓘ\r\n\r\nFor All Time Red-White",
-    "price": "89.99",
+    "name": "Arc'teryx Atom Hoody",
+    "description": "The Atom Hoody from Arc'teryx is the solution to your “which jacket should I wear?” problem. Wear it solo for chilly forest hikes with windy summits, climbing at the crag, and hanging at the campsite, or as a midlayer for touring and wet winter objectives. The Coreloft synthetic insulation stays warm even if you run into light weather, making it a better alternative to down for high-output days year round.\r\n\r\nWhat's been updated: Updated with a FC0 DWR finish for a lower footprint.\r\n\r\nPerformance stretch fleece side panels give ventilation\r\nResilient Coreloft™ Compact 60 insulation is breathable, warm, and light, performs if wet, and delivers loft retention that resists packing out\r\nLight, soft Tyono™ 20 is air permeable\r\nBreathable 20D recycled nylon liner helps regulate temperature and is soft and comfortable next to the skin\r\nCare & Material\r\n100% Nylon\r\nColour:\r\nBlack\r\nProduct Code: 19712476/766510",
+    "price": "260.00",
     "stock": 10,
     "image": "products/arcteryx.webp"
   }
@@ -14,10 +14,10 @@
   "model": "shop.product",
   "pk": 2,
   "fields": {
-    "name": "Asics GEL-VENTURE 6",
-    "description": "Men Shoes\r\nExplore Asics\r\n£ 94.99VAT included\r\n\r\nor 4 interest-free payments of £23.75 with  ⓘ\r\n\r\nBlack-Silver",
-    "price": "94.99",
-    "stock": 5,
+    "name": "Fred Perry Inline Gilet",
+    "description": "Product InfoReviewsDeliveryReturns\r\nGrab quilted comfort for colder weather with this men's Inline Gilet from Fred Perry. In a Black colourway, this full zip jacket is made from recycled nylon ripstop fabric to keep you sheltered from the conditions. The lightweight padding and elastic binding on the trims locks in your heat, while the side pockets offer space for your essentials. Finished off with an embroidered Laurel Wreath logo on the chest for a heritage sign-off. Machine washable. | Our model is 6'0\" with a 35\" chest and wears a size medium.\r\nCare & Material\r\n100% Recycled Polyamide\r\nColour:\r\nBlack\r\nProduct Code: 19664531/709844",
+    "price": "140.00",
+    "stock": 12,
     "image": "products/fred_perry.webp"
   }
 },
@@ -25,9 +25,9 @@
   "model": "shop.product",
   "pk": 3,
   "fields": {
-    "name": "New Balance 740",
-    "description": "Men Shoes\r\nExplore New Balance\r\n£ 99.99VAT included\r\n\r\nor 4 interest-free payments of £25.00 with  ⓘ\r\n\r\nWhite-White-Black",
-    "price": "99.99",
+    "name": "The North Face Pertex Synthetic Jacket",
+    "description": "Stay warm in JD-exclusive style. This men's Pertex Synthetic Jacket lands in grey, with a smooth woven Pertex shell to protect you from the elements. A lightweight insulation locks in the heat, and a zipper and toggled hood keep you covered. With pockets to stash your stuff, it's finished with signature The North Face branding. | Our model is 6'0\" with a 40\" chest and wears a size M.\r\n\r\nCare & Material\r\n100% Nylon\r\nColour:\r\nGrey\r\nProduct Code: 19729340/785388",
+    "price": "225.00",
     "stock": 10,
     "image": "products/north_face.webp"
   }
@@ -36,9 +36,9 @@
   "model": "shop.product",
   "pk": 4,
   "fields": {
-    "name": "Nike Air Max Tuned 1",
-    "description": "Men Shoes\r\nExplore Nike\r\nThis item is on sale. Price dropped from £ 174.99 to £ 140.00\r\n£ 140.00\r\n£ 174.99\r\nVAT included\r\n\r\nSport Red-Black",
-    "price": "140.00",
+    "name": "Reprimo Flight Jacket",
+    "description": "Whatever the weather, this men's Flight Jacket from Reprimo has got your back. Cut from lightweight woven fabric, it gives you protection against the wind and light rain. It's got a zip and a hood for coverage, with a back vent for extra airflow. It has elasticated cuffs to hold the shape, with zip pockets for your stuff. Finished with signature Reprimo branding. Machine washable. | Our model is 6'0\" with a 39\" chest and wears a size M.\r\nCare & Material\r\n100% Polyester\r\nColour:\r\nGrey\r\nProduct Code: 19733929/787626",
+    "price": "75.00",
     "stock": 5,
     "image": "products/reprimo.webp"
   }
@@ -47,10 +47,10 @@
   "model": "shop.product",
   "pk": 5,
   "fields": {
-    "name": "adidas Handball Spezial",
-    "description": "Men Shoes\r\nExplore adidas\r\n£ 89.99VAT included\r\n\r\nor 4 interest-free payments of £22.50 with  ⓘ\r\n\r\nOlive Strata-Olive Strata-Gum5",
-    "price": "89.99",
-    "stock": 6,
+    "name": "Trailberg Triathlon Padded Jacket",
+    "description": "Lock in the heat. This men's Triathlon Padded Jacket from Trailberg is cut from smooth, water-resistant fabric with padded, polysynthetic fill to keep you toasty. They have a full-zip fastening and hood to keep you covered. Thumbloops secure the fit. Zip-up pockets secure your essentials. Finished up with signature branding. Machine washable | Our model is 6'0\" with a 39\" chest and wears a size M.\r\nCare & Material\r\n100% Polyester\r\nColour:\r\nBlack\r\nProduct Code: 19715397/766037",
+    "price": "145.00",
+    "stock": 10,
     "image": "products/trailberg.webp"
   }
 },
@@ -58,10 +58,10 @@
   "model": "shop.product",
   "pk": 6,
   "fields": {
-    "name": "Reebok Club C 85 Pump",
-    "description": "Men Shoes\r\nExplore Reebok\r\nThis item is on sale. Price dropped from £ 119.99 to £ 95.00\r\n£ 95.00\r\n£ 119.99\r\nVAT included\r\n\r\nor 4 interest-free payments of £23.75 with  ⓘ\r\n\r\nWhite-Classic White-Vector Blue",
+    "name": "Zavetti Canada Terrosso 2.0 Jacket",
+    "description": "Layer up. Beat the elements. This men's Terrosso 2.0 Jacket from Zavetti Canada ticks all the boxes. A full-zip fastening, a hood and a synthetic fill. Trust, the cold doesn't stand a chance. With zip pockets, it's signed off with signature Zavetti Canada branding. Machine washable. | Our model is 6'0\" with a 41\" chest and wears a size M.\r\nCare & Material\r\n100% Polyester\r\nColour:\r\nBlack\r\nProduct Code: 19711465/768171",
     "price": "95.00",
-    "stock": 5,
+    "stock": 8,
     "image": "products/zavetti.webp"
   }
 }
