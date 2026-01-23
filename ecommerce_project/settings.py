@@ -5,9 +5,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'dev-secret-key-for-local-use-only'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["ecommerece-devops.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "ecommerece-devops.onrender.com"]
+
 
 CSRF_TRUSTED_ORIGINS = [
     "https://ecommerece-devops.onrender.com",
