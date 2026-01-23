@@ -1,35 +1,22 @@
 from pathlib import Path
 import os
-import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# ---- Core ----
+# Use env vars on Render
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-for-local-use-only")
-
-# Render: set DEBUG=0 (False)
 DEBUG = os.getenv("DEBUG", "0") == "1"
 
 ALLOWED_HOSTS = [
-    "ecommerece-devops.onrender.com",
+    "my-shop-3-qhz0.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://ecommerece-devops.onrender.com",
+    "https://my-shop-3-qhz0.onrender.com",
 ]
 
-# Behind Render proxy (fixes CSRF/secure cookies in HTTPS)
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-
-# Use secure cookies only when not debugging
-CSRF_COOKIE_SECURE = not DEBUG
-SESSION_COOKIE_SECURE = not DEBUG
-CSRF_COOKIE_SAMESITE = "Lax"
-SESSION_COOKIE_SAMESITE = "Lax"
-
-# ---- Apps ----
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -40,10 +27,9 @@ INSTALLED_APPS = [
     "shop",
 ]
 
-# ---- Middleware ----
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # must be right after SecurityMiddleware
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # add for Render static
 
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -55,7 +41,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "ecommerce_project.urls"
 
-# ---- Templates ----
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -74,43 +59,47 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "ecommerce_project.wsgi.application"
 
-# ---- Database ----
-# IMPORTANT:
-# - If DATABASE_URL exists (external DB), it will use it (persistent).
-# - Otherwise it falls back to local sqlite (NOT persistent on Render free).
+# SQLite (NOTE: On Render Free, this is NOT truly persistent across redeploys)
 DATABASES = {
-    "default": dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-        conn_max_age=600,
-    )
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
-# ---- Auth ----
 AUTH_PASSWORD_VALIDATORS = []
 
-LOGIN_REDIRECT_URL = "product_list"
-LOGOUT_REDIRECT_URL = "login"
-
-# ---- i18n ----
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-# ---- Static files (WhiteNoise) ----
+# Static files (WhiteNoise)
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "shop" / "static"]
 
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
     "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
 }
 
-# ---- Media ----
+# Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# ---- Cart ----
+# Redirects
+LOGIN_REDIRECT_URL = "product_list"
+LOGOUT_REDIRECT_URL = "login"
+
+# Cart settings
 CART_SESSION_ID = "cart"
+
+# ---- Render proxy/HTTPS fixes (prevents CSRF token errors) ----
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SAMESITE = "Lax"
+SESSION_COOKIE_SAMESITE = "Lax"
