@@ -8,13 +8,15 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-for-local-use-only")
 DEBUG = os.getenv("DEBUG", "0") == "1"
 
 ALLOWED_HOSTS = [
-    "my-shop-3-qhz0.onrender.com",
+    "ecommerece-devops.onrender.com",
+    ".onrender.com",
     "localhost",
     "127.0.0.1",
 ]
 
+
 CSRF_TRUSTED_ORIGINS = [
-    "https://my-shop-3-qhz0.onrender.com",
+    "https://ecommerece-devops.onrender.com",
 ]
 
 INSTALLED_APPS = [
@@ -29,7 +31,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # add for Render static
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # static files on Render
 
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -59,7 +61,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "ecommerce_project.wsgi.application"
 
-# SQLite (NOTE: On Render Free, this is NOT truly persistent across redeploys)
+# SQLite (Render Free: NOT truly persistent across redeploys without Disk)
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -97,7 +99,7 @@ LOGOUT_REDIRECT_URL = "login"
 # Cart settings
 CART_SESSION_ID = "cart"
 
-# ---- Render proxy/HTTPS fixes (prevents CSRF token errors) ----
+# ---- Render proxy/HTTPS fixes (prevents CSRF 403) ----
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CSRF_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_SECURE = not DEBUG
