@@ -1,4 +1,4 @@
-An Optimal Solution For ZAHID RETAILS
+An Optimal Solution For IPSWICH RETAILS
 
 Admin Login Credentials:
 
