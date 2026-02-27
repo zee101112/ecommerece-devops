@@ -1,1 +1,15 @@
 body { background-color: #d2c6ba; }
+/* shop/css/style.css */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+footer {
+    flex-shrink: 0;
+}
